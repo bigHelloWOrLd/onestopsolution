@@ -3,8 +3,8 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
-    containers:
-      - image: node:12.16.1
+    container:
+      image: node:12.16.1
     
     env:
       mongodb_connection_protocol: mongodb
