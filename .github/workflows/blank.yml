@@ -1,0 +1,22 @@
+name: docker
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    containers:
+      - image: node:12.16.1
+    
+    env:
+      mongodb_connection_protocol: mongodb
+      mongodb_connection_host: mongodb
+      mongodb_username: root
+      mongodb_password: password
+      port: 8080
+
+    services:
+      mongodb:
+        image: mongo
+        env:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: password
+
